@@ -1,0 +1,56 @@
+{
+    "teams": [
+      {
+        "id": 1,
+        "name": "Blue"
+      },
+      {
+        "id": 2,
+        "name": "Red"
+      },
+      {
+        "id": 3,
+        "name": "Orange"
+      }
+    ],
+    "players": [
+      {
+        "id": 1,
+        "firstName": "John",
+        "lastName": "Doe",
+        "teamId": 3
+      },
+      {
+        "id": 2,
+        "firstName": "Jane",
+        "lastName": "Doe",
+        "teamId": 1
+      },
+      {
+        "id": 3,
+        "firstName": "Keith",
+        "lastName": "Doe",
+        "teamId": 2
+      }     
+    ],
+    "scores": [
+        {
+            "id": 1,
+            "teamId": 1,
+            "score": 3
+            
+        },
+        {
+            "id": 2,
+            "teamId": 2,
+            "score": 2
+            
+        },
+        {
+            "id": 3,
+            "teamId": 3,
+            "score": 1
+            
+        }
+    ]
+  }
