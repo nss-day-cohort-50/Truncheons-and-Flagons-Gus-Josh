@@ -1,4 +1,4 @@
-import { getApplicationData } from "../dataAccess.js";
+import { getApplicationData, postData } from "../dataAccess.js";
 
 const mainContainer = document.querySelector("#container")
 export const playersHTML = ()=>{
@@ -20,6 +20,14 @@ export const playersHTML = ()=>{
 mainContainer.addEventListener("click",
     (event)=>{
         if (event.target.id === "createPlayer"){
-            
+            const playerFirstName = mainContainer.querySelector("#playerFirstName").value
+            const playerLastName = mainContainer.querySelector("#playerLastName").value
+            const playerTeam = mainContainer.querySelector("#teamSelector").value
+            const playerObject = {
+                "firstName": playerFirstName,
+                "lastName": playerLastName,
+                "teamId": parseInt(playerTeam)
+            }
+            postData("players",playerObject)
         }
     })
