@@ -29,10 +29,10 @@ export const postData = (resource, object)=>{
         },
         body: JSON.stringify(object)
     }
-    return fetch(`${api}/${resource}`, fetchOptions)
+    return fetch(`${API}/${resource}`, fetchOptions)
         .then(response => response.json())
         .then(() =>{
-            mainContainer.dispatchEvent(new CustomeEvent("stateChanged"))
+            mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
         })
 }
 export const getApplicationData = (resource)=>{
