@@ -1,9 +1,10 @@
 import { SelectTeam } from "./game/TeamSelect.js"
+
+
 export const GameHTML = ()=>{
     return `
     <section class="teamForm">
         <h2>Team Form</h2>
-        ${SelectTeam()}
     </section>
 
     <section class="teamSelect">
@@ -12,3 +13,12 @@ export const GameHTML = ()=>{
     </section>
     `
 }
+
+const gameContainer = document.querySelector("#containerTwo")
+
+gameContainer.addEventListener("click", click => {
+    if (click.target.id === "startGame") {
+        gameContainer.innerHTML = `${SelectTeam()}`
+        
+    }
+})
