@@ -1,4 +1,5 @@
 import { Truncheons } from "./TruncheonsAndFlagons.js"
+import { GameHTML } from "./TruncheonsAndFlagonsGame.js"
 
 
 const applicationState = {
@@ -7,6 +8,7 @@ const applicationState = {
     scores:[]
 }
 const mainContainer = document.querySelector("#container")
+const secondContainer = document.querySelector("#containerTwo")
 const API = "http://localhost:8088"
 export const fetchData = ()=>{
     const teamsFetch = fetch("http://localhost:8088/teams")
@@ -18,7 +20,9 @@ export const fetchData = ()=>{
             applicationState.teams = teams
             applicationState.players = players
             applicationState.scores = scores
-        }).then(()=> mainContainer.innerHTML = Truncheons())
+        }).then(()=> {
+            mainContainer.innerHTML = Truncheons()
+            secondContainer.innerHTML = GameHTML()})
 }
 
 export const postData = (resource, object)=>{

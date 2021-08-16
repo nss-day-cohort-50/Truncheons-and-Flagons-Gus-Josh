@@ -22,14 +22,7 @@ export const Truncheons = () => {
         ${TeamForm()}
     </section>
 
-    <section class="teamForm">
-        <h2>Team Form</h2>
-        ${SelectTeam()}
-    </section>
-
-    <section class="teamSelect">
-    <button class="button" id="startGame">Start Game</button>
-    </section>
+    
     <section class="leaderboard">
         ${LeaderBoardHtml()}
     </section>
