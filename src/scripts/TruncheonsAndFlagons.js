@@ -3,6 +3,7 @@ import { TeamForm } from "./team/Teams.js"
 import { playersHTML } from "./players/Players.js"
 import { LeaderBoardHtml } from "./team/Leaderboard.js"
 import { SelectTeam } from "./game/TeamSelect.js"
+import { liveScoreBoard } from "./score/Scores.js"
 
 
 
@@ -21,7 +22,7 @@ export const Truncheons = () => {
         <h2>Team Form</h2>
         ${TeamForm()}
     </section>
-
+    ${liveScoreBoard()}
     
     <section class="leaderboard">
         ${LeaderBoardHtml()}
