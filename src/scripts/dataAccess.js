@@ -6,7 +6,8 @@ const applicationState = {
     teams: [],
     players:[],
     scores:[],
-    transientState: []
+    transientState: [],
+    transientStateHTML: 0
 }
 const mainContainer = document.querySelector("#container")
 const secondContainer = document.querySelector("#containerTwo")
@@ -23,7 +24,8 @@ export const fetchData = ()=>{
             applicationState.scores = scores
         }).then(()=> {
             mainContainer.innerHTML = Truncheons()
-            secondContainer.innerHTML = GameHTML()})
+            secondContainer.innerHTML =  GameHTML()
+        })
 }
 
 export const postData = (resource, object)=>{
@@ -46,4 +48,11 @@ export const getApplicationData = (resource)=>{
 }
 export const setObject= (object) =>{
     return applicationState.transientState.push(object)
+}
+export const setTransientHTML = ()=>{
+     applicationState.transientStateHTML ++
+     secondContainer.dispatchEvent(new CustomEvent("stateChanged"))
+}
+export const getGameState = ()=>{
+    return applicationState.transientStateHTML
 }
