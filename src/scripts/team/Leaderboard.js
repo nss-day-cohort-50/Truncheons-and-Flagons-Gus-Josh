@@ -17,7 +17,7 @@ export const LeaderBoardHtml = () =>{
                         ${teams.map(team => {
                             return `<tr><td>${team.name}</td><td>${players.filter(player => {
                                 return player.teamId === team.id}).length}</td><td>${teamScore(scores.filter(score => score.teamId === team.id))}</td></tr>`
-                        })}
+                        }).join("")}
                     </table>`
 
     return html
