@@ -5,8 +5,9 @@ import {  } from "./TruncheonsAndFlagons.js"
 const mainContainer = document.querySelector("#container")
 
 const render = () => {
+
     
-    mainContainer.innerHTML =  empty //name if function exported from TruncheonsAndFlagons.js
+    mainContainer.innerHTML =  empty //name of function exported from TruncheonsAndFlagons.js
 
 }
 
