@@ -32,7 +32,7 @@ export const TeamForm = () => {
             </div>
             
     
-            <button class="button" id="submit">Submit Team</button>
+            <button class="button" id="submit">Add Team</button>
         `
 
     return html
