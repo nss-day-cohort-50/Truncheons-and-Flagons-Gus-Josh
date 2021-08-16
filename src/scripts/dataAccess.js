@@ -5,7 +5,8 @@ import { GameHTML } from "./TruncheonsAndFlagonsGame.js"
 const applicationState = {
     teams: [],
     players:[],
-    scores:[]
+    scores:[],
+    transientState: []
 }
 const mainContainer = document.querySelector("#container")
 const secondContainer = document.querySelector("#containerTwo")
@@ -42,4 +43,7 @@ export const postData = (resource, object)=>{
 export const getApplicationData = (resource)=>{
     
     return applicationState[resource].map((object)=>({...object}))
+}
+export const setObject= (object) =>{
+    return applicationState.transientState.push(object)
 }
