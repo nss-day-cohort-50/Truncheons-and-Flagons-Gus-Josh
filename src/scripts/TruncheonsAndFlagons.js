@@ -1,5 +1,5 @@
 // import { playerForm } from "./players/Players.js"
-// import { teamForm } from "./team/Teams.js"
+import { TeamForm } from "./team/Teams.js"
 
 import { playersHTML } from "./players/Players.js"
 
@@ -18,6 +18,7 @@ export const Truncheons = () => {
 
     <section class="teamForm">
         <h2>Team Form</h2>
+        ${TeamForm()}
         
     </section>
     ` 
