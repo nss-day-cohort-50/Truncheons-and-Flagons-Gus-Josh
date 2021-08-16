@@ -19,7 +19,7 @@ mainContainer.addEventListener("click", clickEvent => {
         }
 
         // Send the data to the API for permanent storage
-        postData("teams",dataToSendToAPI)
+        postData("teams", dataToSendToAPI)
     }
 })
 
