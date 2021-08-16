@@ -1,6 +1,8 @@
 // import { playerForm } from "./players/Players.js"
 // import { teamForm } from "./team/Teams.js"
 
+import { playersHTML } from "./players/Players.js"
+
 
 
 const mainContainer = document.querySelector("#container")
@@ -11,7 +13,7 @@ export const Truncheons = () => {
     <h1>Truncheons and Flagons</h1>
     <section class="playerForm">
     <h2>Player Form</h2>
-        
+        ${playersHTML()}
     </section>
 
     <section class="teamForm">
