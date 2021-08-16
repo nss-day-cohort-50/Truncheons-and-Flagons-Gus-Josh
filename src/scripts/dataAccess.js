@@ -36,6 +36,6 @@ export const postData = (resource, object)=>{
         })
 }
 export const getApplicationData = (resource)=>{
-    const specificResource = resource
-    return applicationState[`${specificResource}`].map((object)=>({...object}))
+    
+    return applicationState[resource].map((object)=>({...object}))
 }
