@@ -1,8 +1,8 @@
-// import { playerForm } from "./players/Players.js"
 import { TeamForm } from "./team/Teams.js"
 
 import { playersHTML } from "./players/Players.js"
 import { LeaderBoardHtml } from "./team/Leaderboard.js"
+import { SelectTeam } from "./game/TeamSelect.js"
 
 
 
@@ -20,7 +20,15 @@ export const Truncheons = () => {
     <section class="teamForm">
         <h2>Team Form</h2>
         ${TeamForm()}
-        
+    </section>
+
+    <section class="teamForm">
+        <h2>Team Form</h2>
+        ${SelectTeam()}
+    </section>
+
+    <section class="teamSelect">
+    <button class="button" id="startGame">Start Game</button>
     </section>
     <section class="leaderboard">
         ${LeaderBoardHtml()}
