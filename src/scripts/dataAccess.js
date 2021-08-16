@@ -1,3 +1,6 @@
+import { Truncheons } from "./TruncheonsAndFlagons.js"
+
+
 const applicationState = {
     teams: [],
     players:[],
@@ -6,17 +9,16 @@ const applicationState = {
 const mainContainer = document.querySelector("#container")
 const API = "http://localhost:8088"
 export const fetchData = ()=>{
-    const teamsFetch = `${API}/teams`
-    const playersFetch = `${API}/players`
-    const scoresFetch = `${API}/scores`
+    const teamsFetch = fetch("http://localhost:8088/teams")
+    const playersFetch = fetch("http://localhost:8088/players")
+    const scoresFetch = fetch("http://localhost:8088/scores")
     Promise.all([teamsFetch,playersFetch,scoresFetch])
-    .then(values =>{
-        return Promise.all(values.map(r => r.json()))
-    }).then(([teams,players,scores])=>{
+    .then(values =>{return Promise.all(values.map(r => r.json()))})
+    .then(([teams,players,scores])=> {
             applicationState.teams = teams
             applicationState.players = players
             applicationState.scores = scores
-        }).then(()=> mainContainer.innerHTML = **)
+        }).then(()=> mainContainer.innerHTML = Truncheons())
 }
 
 export const postData = (resource, object)=>{
