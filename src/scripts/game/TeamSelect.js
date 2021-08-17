@@ -6,7 +6,7 @@ const gameContainer = document.querySelector("#containerTwo")
 const mainContainer = document.querySelector("#container")
 export const SelectTeam = () => {
     const teams = getApplicationData("teams")
-    return `
+    return `<h1>Truncheons and Flagons</h1>
     <h2> Pick teams </h2>
     <select name="team1" id="firstTeamSelector">
                         <option value="" selected disabled hidden>Choose Team 1</option>

@@ -2,3 +2,26 @@ main{
     display: flex;
     
 }
+.form{
+    border: dotted 1px darkslategray;
+    padding: 0.3rem 2rem 4rem;
+    
+}
+
+#containerTwo{
+    flex-basis: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.data{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    align-content: stretch;
+    font-size: 1.1rem;
+    width: 100%;
+    height: 100vh;
+    
+}
