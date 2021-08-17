@@ -1,4 +1,4 @@
-import { getApplicationData } from "../dataAccess.js";
+import { getApplicationData, postData } from "../dataAccess.js";
 
 
 export const liveScoreBoard = ()=>{
@@ -15,4 +15,10 @@ export const liveScoreBoard = ()=>{
                             </table>`
 
     return htmlString
+}
+export const postScores = ()=>{
+    const teams = getApplicationData("transientState")
+    for (const team of teams) {
+        postData("scores", team)
+    }
 }
