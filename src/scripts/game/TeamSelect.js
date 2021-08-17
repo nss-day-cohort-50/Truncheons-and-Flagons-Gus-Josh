@@ -1,4 +1,4 @@
-import { getApplicationData, setObject } from "../dataAccess.js"
+import { getApplicationData, setObject, setTransientHTML } from "../dataAccess.js"
 import { postData } from "../dataAccess.js"
 
 
@@ -36,6 +36,7 @@ gameContainer.addEventListener("change",
             // const teamName = firstTeamName()
             const activeTeams = {
                 "teamId": parseInt(userFirstTeam),
+                "score": 0
                
             }
             setObject(activeTeams)
@@ -54,6 +55,7 @@ gameContainer.addEventListener("change",
             // const teamName = firstTeamName()
             const activeTeams = {
                 "teamId": parseInt(userSecondTeam),
+                "score": 0
                
             }
             setObject(activeTeams)
@@ -72,10 +74,11 @@ gameContainer.addEventListener("change",
             // const teamName = firstTeamName()
             const activeTeams = {
                 "teamId": parseInt(userThirdTeam),
+                "score": 0
                
             }
             setObject(activeTeams)
             mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
-            secondContainer.dispatchEvent(new CustomEvent("stateChanged"))
+            setTransientHTML()
         }})
 
