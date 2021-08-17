@@ -1,4 +1,4 @@
-import { getApplicationData, setObject } from "../dataAccess.js"
+import { checkTransientArray, getApplicationData, setObject, setTransientHTML } from "../dataAccess.js"
 import { postData } from "../dataAccess.js"
 
 
@@ -28,12 +28,13 @@ gameContainer.addEventListener("change",
     (event)=>{
         if (event.target.name === "team1"){
             const userFirstTeam = gameContainer.querySelector("#firstTeamSelector").value
-            if (userFirstTeam === "") {
-                window.alert("Must select a team")
-            }
+            
             const activeTeams = {
-                "teamId": parseInt(userFirstTeam),     
+                "teamId": parseInt(userFirstTeam),
+                "score": 0
+               
             }
+            checkTransientArray(activeTeams)
             setObject(activeTeams)
             mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
         }})
@@ -42,13 +43,12 @@ gameContainer.addEventListener("change",
     (event)=>{
         if (event.target.name === "team2"){
             const userSecondTeam = gameContainer.querySelector("#secondTeamSelector").value
-            if (userSecondTeam === userFirstTeam || userSecondTeam === userThirdTeam) {
-                window.alert("Select a different team")
-            }
             const activeTeams = {
                 "teamId": parseInt(userSecondTeam),
+                "score": 0
                
             }
+            checkTransientArray(activeTeams)
             setObject(activeTeams)
             mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
         }})
@@ -57,15 +57,15 @@ gameContainer.addEventListener("change",
     (event)=>{
         if (event.target.name === "team3"){
             const userThirdTeam = gameContainer.querySelector("#thirdTeamSelector").value
-            if (userThirdTeam === userFirstTeam || userThirdTeam === userSecondTeam) {
-                window.alert("Select a different team")
-            }
             const activeTeams = {
                 "teamId": parseInt(userThirdTeam),
+                "score": 0
                
             }
+            checkTransientArray(activeTeams)
             setObject(activeTeams)
+            
             mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
-            secondContainer.dispatchEvent(new CustomEvent("stateChanged"))
+            setTransientHTML()
         }})
 

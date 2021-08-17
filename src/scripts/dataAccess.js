@@ -57,3 +57,14 @@ export const setTransientHTML = ()=>{
 export const getGameState = ()=>{
     return applicationState.transientStateHTML
 }
+
+export const checkTransientArray=(object)=>{
+    const transientState = applicationState.transientState
+    if (transientState.some((item)=>item.teamId === object.teamId)){
+    const index = transientState.findIndex(x=>x.teamId === object.teamId)
+    spliceTeamObject(index)
+    pushTeamObject(object)
+    }}
+
+export const spliceTeamObject = (num) => applicationState.transientState.splice(num, 1)
+export const pushTeamObject = (object)=> applicationState.transientState.push(object)
