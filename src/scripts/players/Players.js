@@ -12,7 +12,7 @@ export const playersHTML = ()=>{
                     <select name="teams" id="teamSelector" class="form-select">
                         ${teams.map((team)=>{return `<option value="${team.id}">${team.name}</option>`}).join("")}
                     </select><br>
-                    <button id="createPlayer"class="btn btn-outline-primary">Add Player</button>
+                    <button id="createPlayer"class="btn btn-outline-primary btn-lg form-control">Add Player</button>
                 </form>`
     return html
 }
