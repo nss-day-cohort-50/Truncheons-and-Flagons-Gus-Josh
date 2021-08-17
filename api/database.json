@@ -63,6 +63,21 @@
       "teamId": 3,
       "score": 3,
       "id": 6
+    },
+    {
+      "teamId": 1,
+      "score": 3,
+      "id": 7
+    },
+    {
+      "teamId": 2,
+      "score": 2,
+      "id": 8
+    },
+    {
+      "teamId": 3,
+      "score": 4,
+      "id": 9
     }
   ]
 }
