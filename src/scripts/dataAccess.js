@@ -7,7 +7,8 @@ const applicationState = {
     players:[],
     scores:[],
     transientState: [],
-    transientStateHTML: 0
+    transientStateHTML: 0,
+    //currentGame: {}
 }
 const mainContainer = document.querySelector("#container")
 const secondContainer = document.querySelector("#containerTwo")
