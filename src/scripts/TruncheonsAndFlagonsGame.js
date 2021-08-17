@@ -3,7 +3,7 @@ import { SelectTeam } from "./game/TeamSelect.js"
 import { Rounds } from "./game/Round.js"
 
 const startGameButton = ()=>{
-    return `
+    return `<h1>Truncheons and Flagons</h1>
     <section class="teamForm">
     <h2>Team Form</h2>
     </section>
