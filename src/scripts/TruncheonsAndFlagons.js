@@ -12,12 +12,12 @@ const mainContainer = document.querySelector("#container")
 export const Truncheons = () => {
     return `
     <h1>Truncheons and Flagons</h1>
-    <section class="playerForm">
-    <h2>Player Form</h2>
+    <section class="playerForm  input-group-sm mb-3">
+    <h2>Create Player</h2>
         ${playersHTML()}
     </section>
 
-    <section class="teamForm">
+    <section class="teamForm ">
         <h2>Team Form</h2>
         ${TeamForm()}
     </section>

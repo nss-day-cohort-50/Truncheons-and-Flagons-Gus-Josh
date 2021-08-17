@@ -5,14 +5,14 @@ export const playersHTML = ()=>{
     const teams = getApplicationData("teams")
     const players = getApplicationData("players")
     const scores = getApplicationData("scores")
-    let html = `<h3>New Player</h3>
+    let html = `
                 <form id="playerCreation">
-                    <input type="text" id="playerFirstName" placeholder="First Name"><br>
-                    <input type="text" id="playerLastName" placeholder="Last Name"><br>
-                    <select name="teams" id="teamSelector">
+                    <input type="text" id="playerFirstName" placeholder="First Name"class="form-control"><br>
+                    <input type="text" id="playerLastName" placeholder="Last Name" class="form-control"><br>
+                    <select name="teams" id="teamSelector" class="form-select">
                         ${teams.map((team)=>{return `<option value="${team.id}">${team.name}</option>`}).join("")}
                     </select><br>
-                    <button id="createPlayer">Add Player</button>
+                    <button id="createPlayer"class="btn btn-outline-primary">Add Player</button>
                 </form>`
     return html
 }
