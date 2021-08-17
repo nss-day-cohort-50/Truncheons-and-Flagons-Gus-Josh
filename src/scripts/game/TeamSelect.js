@@ -1,4 +1,4 @@
-import { getApplicationData, getGameState, setObject, setTransientHTML } from "../dataAccess.js"
+import { addToTransientState, getApplicationData, getGameState, setObject, setTransientHTML } from "../dataAccess.js"
 import { postData } from "../dataAccess.js"
 
 
@@ -41,7 +41,7 @@ gameContainer.addEventListener("change",
                     "score": 0
                    
                 }
-                setObject(activeTeams)
+                addToTransientState(activeTeams)
                 mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
             }}
 
@@ -65,7 +65,7 @@ gameContainer.addEventListener("change",
                     "score": 0
                    
                 }
-                setObject(activeTeams)
+                addToTransientState(activeTeams)
                 mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
             }}
         })
@@ -87,7 +87,7 @@ gameContainer.addEventListener("change",
                     "score": 0
                    
                 }
-                setObject(activeTeams)
+                addToTransientState(activeTeams)
                 mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
                 setTransientHTML()
             }

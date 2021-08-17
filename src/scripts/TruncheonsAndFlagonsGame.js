@@ -10,7 +10,7 @@ const startGameButton = ()=>{
     
     <section class="teamSelect">
     
-    <button class="button" id="startGame">Start Game</button>
+    <button class="btn btn-outline-primary btn-lg" id="startGame">Start Game</button>
     </section>
     `
 }

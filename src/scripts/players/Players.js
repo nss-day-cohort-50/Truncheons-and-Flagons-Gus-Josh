@@ -23,6 +23,7 @@ mainContainer.addEventListener("click",
             const playerFirstName = mainContainer.querySelector("#playerFirstName").value
             const playerLastName = mainContainer.querySelector("#playerLastName").value
             const playerTeam = mainContainer.querySelector("#teamSelector").value
+            
             const playerObject = {
                 "firstName": playerFirstName,
                 "lastName": playerLastName,

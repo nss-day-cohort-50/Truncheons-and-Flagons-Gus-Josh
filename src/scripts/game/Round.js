@@ -1,4 +1,5 @@
-import { getApplicationData, setObject, setTransientHTML } from "../dataAccess.js";
+import { addToTransientState, getApplicationData, resetTransientState, setTransientHTML } from "../dataAccess.js";
+import { postScores } from "../score/Scores.js";
 const gameContainer = document.querySelector("#containerTwo")
 export const Rounds = (num)=>{
     const selectedTeams = getApplicationData("transientState")
@@ -11,7 +12,7 @@ export const Rounds = (num)=>{
                 return `
                 <label for="team${team.teamId}">${foundTeam.name}</label><br>
                 <input name="team${team.teamId}"type="number" id="teamscore--${team.teamId}"><br><br>`}).join("")}
-            <button id="nextRoundButton">Next Round</button>
+            <button id="nextRoundButton" class="btn btn-outline-primary btn-lg">Next Round</button>
             `
     const lastRound = `<h1>Final Round</h1>
                         ${selectedTeams.map(team => {
@@ -22,7 +23,7 @@ export const Rounds = (num)=>{
                             <label for="team${team.teamId}">${foundTeam.name}</label><br>
                             <input name="team${team.teamId}"type="number" id="teamscore--${team.teamId}"><br><br>`
                         }).join("")}
-                        <button id="finalRound">Finish Game</button>`
+                        <button id="finalRound" class="btn btn-outline-primary btn-lg">Finish Game</button>`
     if (num <3){
         return roundOneTwo
     }else{
@@ -37,7 +38,7 @@ export const ScoreAdder = ()=>{
         return team
     })
     selectedTeamsScore.map((team)=>{
-        setObject(team)
+        addToTransientState(team)
     })
     
 
@@ -50,5 +51,7 @@ gameContainer.addEventListener("click",
         }else if (event.target.id === "finalRound"){
             ScoreAdder()
             setTransientHTML()
+            postScores()
+            resetTransientState()
         }
     })

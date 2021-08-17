@@ -50,6 +50,22 @@ export const getApplicationData = (resource)=>{
 export const setObject= (object) =>{
     return applicationState.transientState.push(object)
 }
+export const SpliceObject = (num) => applicationState.transientState.splice(num, 1)
+export const addToTransientState = (object)=>{
+    if (applicationState.transientState.length >= 0){
+        if (applicationState.transientState.some((item)=>item.teamId === object.teamId)){
+            const index = applicationState.transientState.findIndex(x => x.teamId === object.teamId)
+            SpliceObject(index)
+            setObject(object)
+            console.log(applicationState.transientState)
+            return
+        }else{
+            setObject(object)
+            console.log(applicationState.transientState)
+            return
+        }
+    }
+}
 export const setTransientHTML = ()=>{
     if (applicationState.transientStateHTML <4){
         applicationState.transientStateHTML ++
@@ -64,13 +80,26 @@ export const getGameState = ()=>{
     return applicationState.transientStateHTML
 }
 
-export const checkTransientArray=(object)=>{
-    const transientState = applicationState.transientState
-    if (transientState.some((item)=>item.teamId === object.teamId)){
-    const index = transientState.findIndex(x=>x.teamId === object.teamId)
-    spliceTeamObject(index)
-    pushTeamObject(object)
-    }}
+export const resetTransientState = () => {
+    applicationState.transientState = []
+}
+// if (event.target.name.startsWith("topics")){
+//     console.log(event.target.value)
+//     const IdObject = {topicId: parseInt(event.target.value)}
+//     const topicArray = getTransientState().topics
+//     if (topicArray.length > 0){
+//         if (topicArray.some((topic)=> topic.topicId === IdObject.topicId)){
+//             const index = topicArray.findIndex(x => x.topicId ===IdObject.topicId)
+//             PopTopicId(index)
+//             console.log(getTransientState().topics)
+//         }else{
+//              PushTopicId(IdObject)
+//              console.log(getTransientState().topics)
 
-export const spliceTeamObject = (num) => applicationState.transientState.splice(num, 1)
-export const pushTeamObject = (object)=> applicationState.transientState.push(object)
+//          }
+
+//     }else{
+//         PushTopicId(IdObject)
+//         console.log(getTransientState().topics)
+
+//     }
