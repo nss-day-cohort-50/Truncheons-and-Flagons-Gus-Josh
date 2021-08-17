@@ -5,7 +5,8 @@ export const Rounds = (num)=>{
     const selectedTeams = getApplicationData("transientState")
     const allTeams = getApplicationData("teams")
     
-    const roundOneTwo = `<h1>Round ${num}</h1>
+    const roundOneTwo = `<h1>Truncheons and Flagons</h1>
+    <h2>Round ${num}</h2>
             ${selectedTeams.map(team =>{
                 const foundTeam = allTeams.find((foundTeam)=>{
                     return foundTeam.id === team.teamId})
@@ -14,7 +15,8 @@ export const Rounds = (num)=>{
                 <input name="team${team.teamId}"type="number" id="teamscore--${team.teamId}"><br><br>`}).join("")}
             <button id="nextRoundButton">Next Round</button>
             `
-    const lastRound = `<h1>Final Round</h1>
+    const lastRound = `<h1>Truncheons and Flagons</h1>
+    <h2>Final Round</h2>
                         ${selectedTeams.map(team => {
                             const foundTeam = allTeams.find((foundTeam) => {
                                 return foundTeam.id === team.teamId
