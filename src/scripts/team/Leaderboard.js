@@ -12,7 +12,7 @@ export const LeaderBoardHtml = () =>{
     const scores = getApplicationData("scores")
     const players = getApplicationData("players")
     let html = `<h3>Leaderdoard</h3>
-                    <table id='leaderboard'>
+                    <table id='leaderboard'class="table table-light">
                         <tr><th>Teams</th><th>Players</th><th>Total Scores</th></tr>
                         ${teams.map(team => {
                             return `<tr><td>${team.name}</td><td>${players.filter(player => {

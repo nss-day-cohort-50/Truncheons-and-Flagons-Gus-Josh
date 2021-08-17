@@ -28,12 +28,12 @@ mainContainer.addEventListener("click", clickEvent => {
 export const TeamForm = () => {
     let html = `
             <div class="field">
-                <label class="label" for="teamName">Team Name</label>
-                <input type="text" name="teamName" class="input" />
+                
+                <input type="text" name="teamName" class="form-control" placeholder="Team Name"/>
             </div>
             
     
-            <button class="button" id="submit">Add Team</button>
+            <button class="btn btn-outline-primary btn-lg" id="submit">Add Team</button>
         `
 
     return html
