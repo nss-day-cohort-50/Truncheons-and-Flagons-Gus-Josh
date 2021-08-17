@@ -3,8 +3,10 @@ import { getApplicationData } from "../dataAccess.js";
 
 export const liveScoreBoard = ()=>{
     const selectedTeams = getApplicationData("transientState")
-    let teamsUpdated = (selectedTeams.length > 0) ? selectedTeams.map((team)=>{
-        return `<tr><td>${team.name}</td><td>${team.score}</td></tr>`
+    const teams = getApplicationData("teams")
+    let teamsUpdated = (selectedTeams.length > 0) ? selectedTeams.map((selectedTeam)=>{
+        const teamName = teams.find(team => team.id === selectedTeam.teamId)
+        return `<tr><td>${teamName.name}</td><td>${teamName.score}</td></tr>`
     }).join("") : `<tr><td><h4> Select Teams </h4></td></tr>`
     let htmlString = `<h3>Current Game</h3>
                             <table>
