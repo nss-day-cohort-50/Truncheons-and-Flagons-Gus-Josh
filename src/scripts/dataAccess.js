@@ -79,6 +79,10 @@ export const setTransientHTML = ()=>{
 export const getGameState = ()=>{
     return applicationState.transientStateHTML
 }
+
+export const resetTransientState = ()=>{
+    return applicationState.transientState
+}
 // if (event.target.name.startsWith("topics")){
 //     console.log(event.target.value)
 //     const IdObject = {topicId: parseInt(event.target.value)}

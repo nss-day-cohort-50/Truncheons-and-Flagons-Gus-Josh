@@ -1,4 +1,4 @@
-import { addToTransientState, getApplicationData, setTransientHTML } from "../dataAccess.js";
+import { addToTransientState, getApplicationData, resetTransientState, setTransientHTML } from "../dataAccess.js";
 import { postScores } from "../score/Scores.js";
 const gameContainer = document.querySelector("#containerTwo")
 export const Rounds = (num)=>{
@@ -74,6 +74,7 @@ gameContainer.addEventListener("click",
             ScoreAdder()
             setTransientHTML()
             postScores()
+            resetTransientState()
 
         }
         }
