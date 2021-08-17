@@ -1,4 +1,5 @@
-import { getApplicationData, setObject, setTransientHTML } from "../dataAccess.js";
+import { addToTransientState, getApplicationData, setTransientHTML } from "../dataAccess.js";
+import { postScores } from "../score/Scores.js";
 const gameContainer = document.querySelector("#containerTwo")
 export const Rounds = (num)=>{
     const selectedTeams = getApplicationData("transientState")
@@ -37,7 +38,7 @@ export const ScoreAdder = ()=>{
         return team
     })
     selectedTeamsScore.map((team)=>{
-        setObject(team)
+        addToTransientState(team)
     })
     
 
@@ -50,5 +51,6 @@ gameContainer.addEventListener("click",
         }else if (event.target.id === "finalRound"){
             ScoreAdder()
             setTransientHTML()
+            postScores()
         }
     })
