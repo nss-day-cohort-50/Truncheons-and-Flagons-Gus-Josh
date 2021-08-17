@@ -48,11 +48,33 @@ export const ScoreAdder = ()=>{
 gameContainer.addEventListener("click",
     (event)=>{
         if (event.target.id === "nextRoundButton"){
-            ScoreAdder()
-            setTransientHTML()
+            
+            const selectedTeams = getApplicationData("transientState")
+            const score1 = gameContainer.querySelector(`#teamscore--${selectedTeams[0].teamId}`).value
+            const score2 = gameContainer.querySelector(`#teamscore--${selectedTeams[1].teamId}`).value
+            const score3 = gameContainer.querySelector(`#teamscore--${selectedTeams[2].teamId}`).value
+            let totalScore = parseInt(score1) + parseInt(score2) + parseInt(score3)
+            if (totalScore > 3){
+                window.alert("Only 3 points per round are allowed")
+            }else{
+                ScoreAdder()
+                setTransientHTML()
+                
+            }
         }else if (event.target.id === "finalRound"){
+            const selectedTeams = getApplicationData("transientState")
+            const score1 = gameContainer.querySelector(`#teamscore--${selectedTeams[0].teamId}`).value
+            const score2 = gameContainer.querySelector(`#teamscore--${selectedTeams[1].teamId}`).value
+            const score3 = gameContainer.querySelector(`#teamscore--${selectedTeams[2].teamId}`).value
+            let totalScore = parseInt(score1) + parseInt(score2) + parseInt(score3)
+            if (totalScore > 3){
+                window.alert("Only 3 points per round are allowed")
+            }
+        else{
             ScoreAdder()
             setTransientHTML()
             postScores()
+
+        }
         }
     })
