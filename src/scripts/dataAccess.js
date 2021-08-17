@@ -81,7 +81,7 @@ export const getGameState = ()=>{
 }
 
 export const resetTransientState = ()=>{
-    return applicationState.transientState
+    return applicationState.transientState = []
 }
 // if (event.target.name.startsWith("topics")){
 //     console.log(event.target.value)
