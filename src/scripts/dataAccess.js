@@ -51,8 +51,14 @@ export const setObject= (object) =>{
     return applicationState.transientState.push(object)
 }
 export const setTransientHTML = ()=>{
-     applicationState.transientStateHTML ++
-     secondContainer.dispatchEvent(new CustomEvent("stateChanged"))
+    if (applicationState.transientStateHTML <4){
+        applicationState.transientStateHTML ++
+        secondContainer.dispatchEvent(new CustomEvent("stateChanged"))
+
+    }else{
+        applicationState.transientStateHTML = 0
+        secondContainer.dispatchEvent(new CustomEvent("stateChanged"))
+    }
 }
 export const getGameState = ()=>{
     return applicationState.transientStateHTML

@@ -6,14 +6,12 @@ mainContainer.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "submit") {
         // Get what the user typed into the form fields
         const userTeamName = document.querySelector("input[name='teamName']").value
-        
-
-        const team = getApplicationData("teams")
-        const userTeamId = team.length + 1
+        if (userTeamName === "") {
+            window.alert("Must pick a team")
+        } else {
 
         // Make an object out of the user input
         const dataToSendToAPI = {
-            id: userTeamId,
             name: userTeamName
           
         }
@@ -22,7 +20,7 @@ mainContainer.addEventListener("click", clickEvent => {
         postData("teams",dataToSendToAPI)
         
     }
-})
+}})
 
 
 export const TeamForm = () => {
