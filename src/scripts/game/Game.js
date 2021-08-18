@@ -20,7 +20,10 @@ export const findWinner = ()=>{
         let htmlString = `<h3>${winnerHeader}</h3>
         <table class="table">
             <tr><th>Team</th><th>Score</th>
-            
+            ${selectedTeams.map(teamWin =>{
+                const teamName = teams.find(team => team.id === teamWin.teamId)
+                return `<tr class="table-success"><td>${teamName.name}</td><td>${teamWin.score}</td></tr>`
+            }).join("")}
         </table>`
 
         return htmlString
