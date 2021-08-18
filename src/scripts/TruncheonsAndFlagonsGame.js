@@ -1,6 +1,7 @@
 import {  getGameState, setTransientHTML } from "./dataAccess.js"
 import { SelectTeam } from "./game/TeamSelect.js"
 import { Rounds } from "./game/Round.js"
+import { Results } from "./game/resultsPopUp.js"
 
 const startGameButton = ()=>{
     return `<h1>Truncheons and Flagons</h1>
@@ -28,6 +29,8 @@ const gameTracker = ()=>{
         break;
         case 4: return html = Rounds(3)
         //round 3 after round is done reset gameState to 0 and display alert box that shows who won, then update transient state with scores then push scores to JSON
+        break
+        case 5: return html = Results()
         break
     }
     return html

@@ -67,7 +67,7 @@ export const addToTransientState = (object)=>{
     }
 }
 export const setTransientHTML = ()=>{
-    if (applicationState.transientStateHTML <4){
+    if (applicationState.transientStateHTML <5){
         applicationState.transientStateHTML ++
         secondContainer.dispatchEvent(new CustomEvent("stateChanged"))
 

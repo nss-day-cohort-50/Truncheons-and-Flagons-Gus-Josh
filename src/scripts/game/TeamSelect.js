@@ -6,7 +6,7 @@ const gameContainer = document.querySelector("#containerTwo")
 const mainContainer = document.querySelector("#container")
 export const SelectTeam = () => {
     const teams = getApplicationData("teams")
-    return `<h1>Truncheons and Flagons</h1>
+    return `
     <h2> Pick teams </h2>
     <form id="teamSelector">
     <select name="team1" id="firstTeamSelector" class="form-select">
