@@ -15,15 +15,15 @@ export const findWinner = ()=>{
     const tieGame = array => array.every(val => val.score ===array[0].score)
     const result = tieGame(selectedTeams)
     if (result === true) {
-        winnerHeader = `Game ends in a TIE!`
-        return `<tr class="table-success"><td>${selectedTeams.name}</td><td>${selectedTeams.score}</td></tr>`
-        
+        winnerHeader = `Game ends in a TIE!`        
         
         let htmlString = `<h3>${winnerHeader}</h3>
         <table class="table">
             <tr><th>Team</th><th>Score</th>
-            ${winnerScore}
+            
         </table>`
+
+        return htmlString
         
     } else {
         
