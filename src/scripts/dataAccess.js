@@ -7,6 +7,9 @@ const applicationState = {
     players:[],
     scores:[],
     transientState: [],
+    selectedTeamOne: 0,
+    selectedTeamTwo: 0,
+    selectedTeamThree: 0,
     transientStateHTML: 0,
     //currentGame: {}
 }
@@ -82,23 +85,16 @@ export const getGameState = ()=>{
 export const resetTransientState = ()=>{
     return applicationState.transientState = []
 }
-// if (event.target.name.startsWith("topics")){
-//     console.log(event.target.value)
-//     const IdObject = {topicId: parseInt(event.target.value)}
-//     const topicArray = getTransientState().topics
-//     if (topicArray.length > 0){
-//         if (topicArray.some((topic)=> topic.topicId === IdObject.topicId)){
-//             const index = topicArray.findIndex(x => x.topicId ===IdObject.topicId)
-//             PopTopicId(index)
-//             console.log(getTransientState().topics)
-//         }else{
-//              PushTopicId(IdObject)
-//              console.log(getTransientState().topics)
-
-//          }
-
-//     }else{
-//         PushTopicId(IdObject)
-//         console.log(getTransientState().topics)
-
-//     }
+export const getSelectedTeam = (selection)=>{
+    return applicationState[selection]
+}
+export const setSelectedTeam = (num, teamId)=>{
+    switch (num){
+        case 1: applicationState.selectedTeamOne = teamId
+        break;
+        case 2: applicationState.selectedTeamTwo = teamId
+        break;
+        case 3: applicationState.selectedTeamThree = teamId
+        break;
+    }
+}
