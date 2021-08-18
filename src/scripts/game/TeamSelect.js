@@ -17,7 +17,7 @@ export const SelectTeam = () => {
                                 if (getSelectedTeam("selectedTeamOne") === team.id){
                                     return `<option selected value="${team.id}">${team.name}</option>`
                                 }else{
-                                    `<option value="${team.id}">${team.name}</option>`   
+                                    return`<option value="${team.id}">${team.name}</option>`   
                                 }
                             }else{
                                 return `<option value="${team.id}">${team.name}</option>`
@@ -31,7 +31,7 @@ export const SelectTeam = () => {
                             if (getSelectedTeam("selectedTeamTwo") === team.id){
                                 return `<option selected value="${team.id}">${team.name}</option>`
                             }else{
-                                `<option value="${team.id}">${team.name}</option>`   
+                                return`<option value="${team.id}">${team.name}</option>`   
                             }
                         }else{
                             return `<option value="${team.id}">${team.name}</option>`
@@ -45,7 +45,7 @@ export const SelectTeam = () => {
                         if (getSelectedTeam("selectedTeamThree") === team.id){
                             return `<option selected value="${team.id}">${team.name}</option>`
                         }else{
-                            `<option value="${team.id}">${team.name}</option>`   
+                            return`<option value="${team.id}">${team.name}</option>`   
                         }
                     }else{
                         return `<option value="${team.id}">${team.name}</option>`
@@ -117,10 +117,17 @@ gameContainer.addEventListener("change",
                     "score": 0
                    
                 }
-                addToTransientState(activeTeams)
-                setSelectedTeam(3, parseInt(userThirdTeam))
-                mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
-                setTransientHTML()
+                if (getSelectedTeam("selectedTeamOne") === getSelectedTeam("selectedTeamTwo") || getSelectedTeam("selectedTeamThree") === getSelectedTeam("selectedTeamTwo")||getSelectedTeam("selectedTeamThree") === getSelectedTeam("selectedTeamOne")){
+                    window.alert("Please Choose 3 seperate teams")
+                }else{
+                    addToTransientState(activeTeams)
+                    setSelectedTeam(3, parseInt(userThirdTeam))
+                    mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+                    setTransientHTML()
+                    setSelectedTeam(1, 0)
+                    setSelectedTeam(2, 0)
+                    setSelectedTeam(3, 0)
+                }
             }
         }
         })
