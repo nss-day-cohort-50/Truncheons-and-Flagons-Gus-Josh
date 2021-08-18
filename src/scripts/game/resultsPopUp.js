@@ -1,18 +1,36 @@
 import { setTransientHTML,resetTransientState } from "../dataAccess.js"
-import { finalScores,  postScores } from "../score/Scores.js"
+import {   postScores } from "../score/Scores.js"
+import { findWinner } from "./Game.js"
 const secondContainer = document.querySelector("#containerTwo")
 export const Results = ()=>{
-    return `
-    <div class="modal"id="modalOne">
-        <div class="modal-header">
-            <div class="title">ExampleModal</div>
-            <button data-close-button id="totalsClose"class="close-button">&times;</button>
+    const winner = findWinner()
+    if (winner !== undefined){
+
+        return `
+        <div class="modal active"id="modalOne">
+            <div class="modal-header">
+                <div class="title">FINAL SCORES!</div>
+                <button data-close-button id="totalsClose"class="close-button">&times;</button>
+            </div>
+            <div class="modal-body">
+                ${winner}
+            </div>
         </div>
-        <div class="modal-body">
-            ${finalScores()}
+        <div id="overlay" class="active"></div>`
+    }else {
+        return `
+        <div class="modal"id="modalOne">
+            <div class="modal-header">
+                <div class="title">FINAL SCORES!</div>
+                <button data-close-button id="totalsClose"class="close-button">&times;</button>
+            </div>
+            <div class="modal-body">
+                
+            </div>
         </div>
-    </div>
-    <div id="overlay" class=""></div>`
+        <div id="overlay" class=""></div>`
+    }
+    
 }
 
 
