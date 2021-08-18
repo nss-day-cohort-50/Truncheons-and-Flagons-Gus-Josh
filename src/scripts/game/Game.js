@@ -7,13 +7,29 @@ export const findWinner = ()=>{
     const selectedTeams = getApplicationData("transientState")
     const teams = getApplicationData("teams")
     let winnerHeader = null
+    
     const teamsUpdated = selectedTeams.sort((a, b) => {
         return b.score - a.score
     })
-
-    let winnerScore = teamsUpdated.map((teamWin)=>{
+    
+    const tieGame = array => array.every(val => val.score ===array[0].score)
+    const result = tieGame(selectedTeams)
+    if (result === true) {
+        winnerHeader = `Game ends in a TIE!`
+        return `<tr class="table-success"><td>${selectedTeams.name}</td><td>${selectedTeams.score}</td></tr>`
+        
+        
+        let htmlString = `<h3>${winnerHeader}</h3>
+        <table class="table">
+            <tr><th>Team</th><th>Score</th>
+            ${winnerScore}
+        </table>`
+        
+    } else {
+        
+        let winnerScore = teamsUpdated.map((teamWin)=>{
         const teamName = teams.find(team => team.id === teamWin.teamId)
-        const index = teamsUpdated.findIndex(x => x.teamId ===teamWin.teamId)
+            const index = teamsUpdated.findIndex(x => x.teamId ===teamWin.teamId)
 
         if (index === 0){
             winnerHeader = `${teamName.name} is the WINNER!`
@@ -21,9 +37,8 @@ export const findWinner = ()=>{
         }else{
             return `<tr class="table-danger"><td>${teamName.name}</td><td>${teamWin.score}</td></tr>`
         }
-        
-    }).join("")
-    let htmlString = `<h3>${winnerHeader}</h3>
+        }).join("")
+        let htmlString = `<h3>${winnerHeader}</h3>
                              <table class="table">
                                  <tr><th>Team</th><th>Score</th>
                                  ${winnerScore}
@@ -31,6 +46,8 @@ export const findWinner = ()=>{
                             
     console.log(winnerScore[0].name)
     return htmlString
+}
+
 }
 // export const finalScores = ()=>{
 //     const selectedTeams = getApplicationData("transientState")

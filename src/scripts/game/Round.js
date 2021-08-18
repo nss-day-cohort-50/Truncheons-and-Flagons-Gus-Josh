@@ -15,7 +15,7 @@ export const Rounds = (num)=>{
                 return `
                 <label for="team${team.teamId}">${foundTeam.name}</label><br>
                 <input name="team${team.teamId}"type="number" id="teamscore--${team.teamId}"><br><br>`}).join("")}
-            <button id="nextRoundButton">Next Round</button>
+            <button class="btn btn-outline-primary btn-lg" id="nextRoundButton">Next Round</button>
             `
     const lastRound = `<h1>Truncheons and Flagons</h1>
     <h2>Final Round</h2>
@@ -28,7 +28,7 @@ export const Rounds = (num)=>{
                             <input name="team${team.teamId}"type="number" id="teamscore--${team.teamId}"><br><br>`
                         }).join("")}
                         
-                        <button data-modal-target="#modalOne"id="finalRound">Finish Game</button>
+                        <button class="btn btn-outline-primary btn-lg" data-modal-target="#modalOne"id="finalRound">Finish Game</button>
                         `
     if (num <3){
         return roundOneTwo
