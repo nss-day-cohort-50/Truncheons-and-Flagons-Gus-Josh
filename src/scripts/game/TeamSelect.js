@@ -8,18 +8,20 @@ export const SelectTeam = () => {
     const teams = getApplicationData("teams")
     return `<h1>Truncheons and Flagons</h1>
     <h2> Pick teams </h2>
-    <select name="team1" id="firstTeamSelector">
+    <form id="teamSelector">
+    <select name="team1" id="firstTeamSelector" class="form-select">
                         <option value="" selected disabled hidden>Choose Team 1</option>
                         ${teams.map((team)=>{return `<option value="${team.id}">${team.name}</option>`}).join("")}
                     </select>
-    <select name="team2" id="secondTeamSelector">
+    <select name="team2" id="secondTeamSelector" class="form-select">
                     <option value="" selected disabled hidden>Choose Team 2</option>
                     ${teams.map((team)=>{return `<option value="${team.id}">${team.name}</option>`}).join("")}
                 </select>
-    <select name="team3" id="thirdTeamSelector">
+    <select name="team3" id="thirdTeamSelector" class="form-select">
                 <option value="" selected disabled hidden>Choose Team 3</option>
                 ${teams.map((team)=>{return `<option value="${team.id}">${team.name}</option>`}).join("")}
             </select>
+    </form>
 
     `
 }

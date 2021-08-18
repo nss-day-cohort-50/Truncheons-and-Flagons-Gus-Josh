@@ -5,7 +5,6 @@ import { Rounds } from "./game/Round.js"
 const startGameButton = ()=>{
     return `<h1>Truncheons and Flagons</h1>
     <section class="teamForm">
-    <h2>Team Form</h2>
     </section>
     
     <section class="teamSelect">
