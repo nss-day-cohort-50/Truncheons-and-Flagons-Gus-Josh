@@ -1,5 +1,6 @@
 import { addToTransientState, getApplicationData, resetTransientState, setTransientHTML } from "../dataAccess.js";
 import { postScores } from "../score/Scores.js";
+import { Results } from "./resultsPopUp.js";
 const gameContainer = document.querySelector("#containerTwo")
 export const Rounds = (num)=>{
     const selectedTeams = getApplicationData("transientState")
@@ -25,7 +26,9 @@ export const Rounds = (num)=>{
                             <label for="team${team.teamId}">${foundTeam.name}</label><br>
                             <input name="team${team.teamId}"type="number" id="teamscore--${team.teamId}"><br><br>`
                         }).join("")}
-                        <button id="finalRound">Finish Game</button>`
+                        ${Results()}
+                        <button data-modal-target="#modalOne"id="finalRound">Finish Game</button>
+                        `
     if (num <3){
         return roundOneTwo
     }else{
@@ -70,11 +73,13 @@ gameContainer.addEventListener("click",
             if (totalScore > 3){
                 window.alert("Only 3 points per round are allowed")
             }
-        else{
-            ScoreAdder()
-            setTransientHTML()
-            postScores()
-            resetTransientState()
+            else{
+                ScoreAdder()
+                document.getElementById("modalOne").classList.add("active")
+                document.getElementById("overlay").classList.add("active")
+                
+
+            
 
         }
         }
