@@ -1,6 +1,10 @@
 import { addToTransientState, getApplicationData, resetTransientState, setTransientHTML } from "../dataAccess.js";
 import { postScores } from "../score/Scores.js";
+<<<<<<< HEAD
 import { Results } from "./resultsPopUp.js";
+=======
+import { findWinner } from "./Game.js";
+>>>>>>> main
 const gameContainer = document.querySelector("#containerTwo")
 export const Rounds = (num)=>{
     const selectedTeams = getApplicationData("transientState")
