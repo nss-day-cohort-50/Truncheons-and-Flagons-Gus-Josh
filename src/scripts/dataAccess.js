@@ -79,7 +79,6 @@ export const setTransientHTML = ()=>{
 export const getGameState = ()=>{
     return applicationState.transientStateHTML
 }
-
 export const resetTransientState = ()=>{
     return applicationState.transientState = []
 }
