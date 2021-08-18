@@ -16,6 +16,7 @@ export const liveScoreBoard = ()=>{
 
     return htmlString
 }
+
 export const postScores = ()=>{
     const teams = getApplicationData("transientState")
     for (const team of teams) {
