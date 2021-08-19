@@ -7,7 +7,7 @@ const mainContainer = document.querySelector("#container")
 export const SelectTeam = () => {
     const teams = getApplicationData("teams")
     
-    return `
+    return `<h1>Truncheons and Flagons</h1>
     <h2> Pick teams </h2>
     <form id="teamSelector">
     <select name="team1" id="firstTeamSelector" class="form-select">
@@ -117,10 +117,10 @@ gameContainer.addEventListener("change",
                     "score": 0
                    
                 }
-                if (getSelectedTeam("selectedTeamOne") === getSelectedTeam("selectedTeamTwo") || getSelectedTeam("selectedTeamThree") === getSelectedTeam("selectedTeamTwo")||getSelectedTeam("selectedTeamThree") === getSelectedTeam("selectedTeamOne")){
+                addToTransientState(activeTeams)
+                if (getApplicationData("transientState").length < 3){
                     window.alert("Please Choose 3 seperate teams")
                 }else{
-                    addToTransientState(activeTeams)
                     setSelectedTeam(3, parseInt(userThirdTeam))
                     mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
                     setTransientHTML()
