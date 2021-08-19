@@ -117,10 +117,10 @@ gameContainer.addEventListener("change",
                     "score": 0
                    
                 }
-                if (getSelectedTeam("selectedTeamOne") === getSelectedTeam("selectedTeamTwo") || getSelectedTeam("selectedTeamThree") === getSelectedTeam("selectedTeamTwo")||getSelectedTeam("selectedTeamThree") === getSelectedTeam("selectedTeamOne")){
+                addToTransientState(activeTeams)
+                if (getApplicationData("transientState").length < 3){
                     window.alert("Please Choose 3 seperate teams")
                 }else{
-                    addToTransientState(activeTeams)
                     setSelectedTeam(3, parseInt(userThirdTeam))
                     mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
                     setTransientHTML()
